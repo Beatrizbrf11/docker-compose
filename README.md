@@ -1,4 +1,4 @@
-# docker-compose para execução do projeto
+# docker-compose para execução dos microserviços do projeto app-pet
 
 Clonar o respositorio: <br>
 https://github.com/app-pet/docker-compose.git
