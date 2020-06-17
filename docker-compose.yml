@@ -6,9 +6,16 @@ services:
         ports:
             - "3000:3000"
         restart: "always"
+        networks:
+            - appPet
     
     providers-api:
         image: william0503/providers-api
         ports:
             - "3001:3001"
         restart: "always"
+        networks:
+            - appPet
+
+networks: 
+    appPet:
