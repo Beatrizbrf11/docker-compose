@@ -18,5 +18,9 @@
 > **Providers:** http://localhost:3001/api/providers <br>
 > **Front:** http://localhost:3030
 
+- Swagger
+> **Users:** http://localhost:3000/api-docs/ <br>
+> **Providers:** http://localhost:3001/api-docs/ <br>
+
 - Para encerrar a execução dos conteineres do projeto, utilize o comando: <br>
 > docker-compose down
