@@ -16,6 +16,16 @@ services:
         restart: "always"
         networks:
             - appPet
-
+    frontend:
+        image: william0503/superapppet-frontend
+        ports:
+            - "3030:80"
+        restart: "always"
+        environment:
+            - FIAP:UserAddress=http://users-api:3000/api/users/
+            - FIAP:ProviderAddress=http://providers-api:3001/api/providers/
+        networks:
+            - appPet
+        
 networks: 
     appPet:
