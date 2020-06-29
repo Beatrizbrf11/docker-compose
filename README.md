@@ -15,7 +15,7 @@
 
 - Com isso, os microsserviços **users** e **providers** estarão disponíveis nas portas **3000** e **3001**, respectivamente, em seu **localhost**. <br>
 > **Users:** http://localhost:3000/api/users <br>
-> **Providers:** http://localhost:3001/api/providers
+> **Providers:** http://localhost:3001/api/providers <br>
 > **Front:** http://localhost:3030
 
 - Para encerrar a execução dos conteineres do projeto, utilize o comando: <br>
