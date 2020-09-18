@@ -1,11 +1,26 @@
 version: "3"
 
 services:
+    visualizador:
+        image: dockersamples/visualizer
+        volumes:
+            - "/var/run/docker.sock:/var/run/docker.sock"
+        ports:
+            - 8080:8080
+        deploy:
+            placement:
+                constraints:
+                    - node.role == manager
+
     users-api:
         image: william0503/users-api
         ports:
             - "3000:3000"
-        restart: "always"
+        deploy:
+            replicas: 3
+            restart_policy:
+                condition: on-failure
+                max_attempts: 3
         networks:
             - appPet
     
@@ -13,14 +28,22 @@ services:
         image: william0503/providers-api
         ports:
             - "3001:3001"
-        restart: "always"
+        deploy:
+            replicas: 3
+            restart_policy:
+                condition: on-failure
+                max_attempts: 3
         networks:
             - appPet
     frontend:
         image: william0503/superapppet-frontend
         ports:
             - "3030:80"
-        restart: "always"
+        deploy:
+            replicas: 2
+            restart_policy:
+                condition: on-failure
+                max_attempts: 3
         environment:
             - FIAP:UserAddress=http://users-api:3000/api/users/
             - FIAP:ProviderAddress=http://providers-api:3001/api/providers/
@@ -29,3 +52,4 @@ services:
         
 networks: 
     appPet:
+        external: true
