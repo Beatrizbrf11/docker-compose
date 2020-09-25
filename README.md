@@ -11,7 +11,8 @@
 
 - Abrir o prompt de comando de sua preferência na pasta na qual o repositório foi clonado e executar os seguintes comandos: <br>
 > cd docker-compose <br>
-> docker-compose up -d
+> docker network create -d overlay appPet  
+> docker stack deploy -c docker-compose.yml apppet
 
 - Com isso, os microsserviços **users** e **providers** estarão disponíveis nas portas **3000** e **3001**, respectivamente, em seu **localhost**. <br>
 > **Users:** http://localhost:3000/api/users <br>
@@ -22,5 +23,11 @@
 > **Users:** http://localhost:3000/api-docs/ <br>
 > **Providers:** http://localhost:3001/api-docs/ <br>
 
+- Visualizer
+> http://localhost:8080/
+
+- Para verificar o status do cluster: <br>
+> docker stack ps apppet
+
 - Para encerrar a execução dos conteineres do projeto, utilize o comando: <br>
-> docker-compose down
+> docker stack rm apppet
